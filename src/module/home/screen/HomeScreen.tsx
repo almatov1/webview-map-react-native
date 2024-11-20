@@ -1,12 +1,10 @@
 import { StackNavigationProp } from "@react-navigation/stack";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GLOBAL } from "../../../core/config/shared";
-import { Text, View } from "react-native";
+import { useProgress } from "../../account/store/progress";
+import AuthComponent from "../../account/ui/AuthComponent";
+import HomeComponent from "../ui/HomeComponent";
 import WrapperComponent from "../../shared/ui/WrapperComponent";
-import { FONT_SIZE } from "../../../core/config/template";
-import CardComponent from "../../shared/ui/CardComponent";
-import ButtonComponent from "../../shared/ui/ButtonComponent";
-import InputComponent from "../../shared/ui/InputComponent";
 
 const HomeScreen = ({ navigation }: { navigation: StackNavigationProp<any, any> }) => {
     // define
@@ -15,31 +13,16 @@ const HomeScreen = ({ navigation }: { navigation: StackNavigationProp<any, any> 
             headerTitle: GLOBAL.NAME,
         });
     }, [navigation]);
-
-    // text
-    const [text, setText] = useState('');
+    const { progress } = useProgress();
 
     return (
-        <View style={{ flex: 1 }}>
-            <WrapperComponent>
-                <View style={{ flex: 1, justifyContent: 'center', gap: 20 }}>
-                    <CardComponent>
-                        <View style={{ gap: 20 }}>
-                            <Text style={{ fontSize: FONT_SIZE.LARGE }}>Сәлем!</Text>
-                            <InputComponent
-                                placeholder="Есіміңізді еңгізіңіз"
-                                value={text}
-                                onChange={setText}
-                            />
-                            <ButtonComponent
-                                title="Растау"
-                                onClick={() => { }}
-                            />
-                        </View>
-                    </CardComponent>
-                </View>
-            </WrapperComponent>
-        </View>
+        <WrapperComponent>
+            {
+                progress.username
+                    ? <HomeComponent navigation={navigation} />
+                    : <AuthComponent />
+            }
+        </WrapperComponent>
     );
 }
 

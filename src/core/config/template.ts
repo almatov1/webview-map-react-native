@@ -7,6 +7,7 @@ export const COLORS = {
 };
 
 export const FONT_SIZE = {
+    EXTRA_LARGE: 32,
     LARGE: 24,
     DEFAULT: 16,
     SMALL: 12
