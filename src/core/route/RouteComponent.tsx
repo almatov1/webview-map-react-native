@@ -9,7 +9,6 @@ import MapScreen from '../../module/lesson/screen/MapScreen';
 import VideoScreen from '../../module/lesson/screen/VideoScreen';
 import TestScreen from '../../module/lesson/screen/TestScreen';
 import ImageScreen from '../../module/lesson/screen/ImageScreen';
-import ARScreen from '../../module/lesson/screen/ARScreen';
 
 const Stack = createNativeStackNavigator();
 const RouteComponent = () => {
@@ -29,7 +28,6 @@ const RouteComponent = () => {
                 <Stack.Screen name={ROUTES.VIDEO} component={VideoScreen} />
                 <Stack.Screen name={ROUTES.TEST} component={TestScreen} />
                 <Stack.Screen name={ROUTES.IMAGE} component={ImageScreen} />
-                <Stack.Screen name={ROUTES.AR} component={ARScreen} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     );

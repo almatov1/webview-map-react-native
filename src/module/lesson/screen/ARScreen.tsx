@@ -1,20 +1,11 @@
 import Slider from "@react-native-community/slider";
-import { StackNavigationProp } from "@react-navigation/stack";
 import { Viro3DObject, ViroAmbientLight, ViroARScene, ViroARSceneNavigator } from "@reactvision/react-viro";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { View } from "react-native";
 import { COLORS } from "../../../core/config/template";
 import { ViroScale, ViroRotation } from "@reactvision/react-viro/dist/components/Types/ViroUtils";
 
-const ARScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
-    // DEFINE
-    const { title, uri, animation } = route.params;
-    // useEffect(() => {
-    //     navigation.setOptions({
-    //         headerTitle: title,
-    //     });
-    // }, [navigation]);
-
+const ARScreen = ({ uri, animation }: { uri?: string, animation?: string }) => {
     // CONTROL
     const [rotation, setRotation] = useState([0, 0, 0]);
     const rotateObject = (newRotation: number) => {
@@ -22,7 +13,7 @@ const ARScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, 
             return [prevRotation[0], newRotation, prevRotation[2]];
         });
     };
-
+    if (!uri) return;
     return (
         <View style={{ flex: 1 }}>
             <ViroARSceneNavigator

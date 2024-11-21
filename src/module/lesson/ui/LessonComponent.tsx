@@ -1,11 +1,19 @@
-import { Alert, Pressable, Text, View } from "react-native";
+import { Alert, Modal, Pressable, Text, View } from "react-native";
 import CardComponent from "../../shared/ui/CardComponent";
 import HoldButtonComponent from "../../shared/ui/HoldButtonComponent";
 import { FONT_SIZE } from "../../../core/config/template";
 import { useProgress } from "../../account/store/progress";
 import { ROUTES } from "../../../core/route/routes";
+import { useState } from "react";
+import ARScreen from "../screen/ARScreen";
 
 const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonIndex: number }) => {
+    // AR
+    const [ARShow, setARShow] = useState(false);
+    const [ARUri, setARUri] = useState<string | undefined>(undefined);
+    const [ARAnimation, setARAnimation] = useState<string | undefined>(undefined);
+
+
     // DEFINE
     const { progress, patchLesson } = useProgress();
     const LESSON_MATERIALS = [
@@ -17,20 +25,17 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "📱 AR",
                 onClick: () => {
-                    navigation.navigate(ROUTES.AR, {
-                        title: "Солнечная система",
-                        uri: "file:///android_asset/model/lesson-0/solar.glb",
-                        animation: "Default Take"
-                    })
+                    setARUri("file:///android_asset/model/lesson-0/solar.glb");
+                    setARAnimation("Default Take");
+                    setARShow(true);
                 }
             },
             {
                 label: "📱 AR",
                 onClick: () => {
-                    navigation.navigate(ROUTES.AR, {
-                        title: "Микроскоп",
-                        uri: "file:///android_asset/model/lesson-0/Microscope.glb"
-                    })
+                    setARUri("file:///android_asset/model/lesson-0/Microscope.glb");
+                    setARAnimation(undefined);
+                    setARShow(true);
                 }
             },
             {
@@ -138,6 +143,13 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                     </View>
                 </CardComponent>
             }
+            <Modal
+                visible={ARShow}
+                animationType="slide"
+                onRequestClose={() => setARShow(false)}
+            >
+                <ARScreen uri={ARUri} animation={ARAnimation} />
+            </Modal>
         </View >
     );
 }

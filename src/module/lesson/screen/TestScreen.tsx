@@ -37,7 +37,7 @@ const TestScreen = ({ navigation, route }: { navigation: StackNavigationProp<any
             }
         });
         navigation.navigate(ROUTES.HOME);
-        Alert.alert('Тест аяқталды ✅s', `Нәтижесі: ${correctAnswers} сұраққа дұрыс жауап белгіленді.`);
+        Alert.alert('Тест аяқталды ✅', `Нәтижесі: ${correctAnswers} сұраққа дұрыс жауап белгіленді.`);
         patchLesson(7, { finished: true, test: correctAnswers });
     };
 
