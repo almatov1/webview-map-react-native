@@ -16,7 +16,22 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             },
             {
                 label: "📱 AR",
-                onClick: () => { }
+                onClick: () => {
+                    navigation.navigate(ROUTES.AR, {
+                        title: "Солнечная система",
+                        uri: "file:///android_asset/model/lesson-0/solar.glb",
+                        animation: "Default Take"
+                    })
+                }
+            },
+            {
+                label: "📱 AR",
+                onClick: () => {
+                    navigation.navigate(ROUTES.AR, {
+                        title: "Микроскоп",
+                        uri: "file:///android_asset/model/lesson-0/Microscope.glb"
+                    })
+                }
             },
             {
                 label: "📄 PDF",
@@ -38,10 +53,6 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                 onClick: () => {
                     navigation.navigate(ROUTES.VIDEO, { title: "Аудио", background: require('../../../core/assets/audio/sample.mp3') })
                 }
-            },
-            {
-                label: "✏️ Test",
-                onClick: () => { navigation.navigate(ROUTES.TEST, { title: "Тест" }) }
             },
             {
                 label: "📹 Video",
@@ -74,7 +85,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
         ],
         [
             {
-                label: "✏️ Test",
+                label: "📱 AR",
                 onClick: () => { }
             }
         ],
@@ -87,8 +98,8 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
         [
             {
                 label: "✏️ Test",
-                onClick: () => { }
-            }
+                onClick: () => { navigation.navigate(ROUTES.TEST, { title: "Тест" }) }
+            },
         ]
     ];
     const onFinished = async () => {

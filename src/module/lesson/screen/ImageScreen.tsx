@@ -2,7 +2,6 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useEffect } from "react";
 import WrapperComponent from "../../shared/ui/WrapperComponent";
 import { Dimensions, Image, ScrollView } from "react-native";
-import { BORDER_RADIUS } from "../../../core/config/template";
 import Zoom from "react-native-zoom-reanimated";
 
 const ImageScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
