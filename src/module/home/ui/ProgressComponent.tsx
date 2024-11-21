@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import CardComponent from "../../shared/ui/CardComponent";
 import { useProgress } from "../../account/store/progress";
-import { COLORS, FONT_SIZE, PADDING } from "../../../core/config/template";
+import { COLORS, FONT_SIZE } from "../../../core/config/template";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 
 const ProgressComponent = () => {
@@ -21,21 +21,11 @@ const ProgressComponent = () => {
                     {
                         (fill) => (
                             <Text style={{ fontSize: FONT_SIZE.LARGE }}>
-                                {fill}%
+                                {fill.toFixed(0).toString()}%
                             </Text>
                         )
                     }
                 </AnimatedCircularProgress>
-                {/* <Text style={{
-                    fontSize: FONT_SIZE.EXTRA_LARGE,
-                    textAlign: 'center',
-                    borderRadius: 100,
-                    borderWidth: 2,
-                    borderColor: COLORS.BLUE,
-                    padding: 10
-                }}>
-                    {progress.lessons.filter(item => item.finished).length.toString()} / {progress.lessons.length.toString()}
-                </Text> */}
             </View>
         </CardComponent>
     );

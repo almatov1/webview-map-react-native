@@ -29,7 +29,7 @@ const HeaderComponent = () => {
                 />
                 <View style={{ gap: 5 }}>
                     <Text style={{ fontSize: FONT_SIZE.LARGE }}>
-                        Сәлем, {progress.username}!
+                        👋 Сәлем, {progress.username}!
                     </Text>
                     <Pressable onPress={onReset}>
                         <Text style={{ fontSize: FONT_SIZE.SMALL, textDecorationLine: 'underline', color: COLORS.RED }}>
