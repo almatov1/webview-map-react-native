@@ -24,11 +24,15 @@ const LessonsComponent = ({ navigation }: { navigation: any }) => {
                         </Text>
                         {
                             progress.lessons[index].finished
-                                ? < ButtonComponent
-                                    title="Өтілді ✅"
-                                    backgroundColor={COLORS.GREEN}
-                                    onClick={() => navigation.navigate(ROUTES.LESSON, { lessonIndex: index })}
-                                />
+                                ? index !== 7
+                                    ? <ButtonComponent
+                                        title="Өтілді ✅"
+                                        backgroundColor={COLORS.GREEN}
+                                        onClick={() => navigation.navigate(ROUTES.LESSON, { lessonIndex: index })}
+                                    /> : <Text style={{
+                                        fontSize: FONT_SIZE.DEFAULT,
+                                        color: COLORS.GREEN
+                                    }}>Тест нәтижесі: {progress.lessons[index].test} ✅</Text>
                                 : (progress.lessons[index - 1] && progress.lessons[index - 1].finished) || index === 0
                                     ? < ButtonComponent
                                         title="Тақырыпты өту"

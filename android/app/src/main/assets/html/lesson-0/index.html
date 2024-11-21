@@ -65,7 +65,10 @@
                 },
                 onEachFeature: function (feature, layer) {
                     layer.on('click', function () {
-                        window.ReactNativeWebView.postMessage(feature.properties.name);
+                        window.ReactNativeWebView.postMessage(JSON.stringify({
+                            name: "countries",
+                            value: feature.properties.name
+                        }));
                     });
                 }
             }).addTo(map);

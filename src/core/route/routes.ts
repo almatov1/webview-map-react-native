@@ -5,7 +5,6 @@ export const ROUTES = {
     AR: "AR",
     VIDEO: "VIDEO",
     MAP: "MAP",
-    AUDIO: "AUDIO",
     TEST: "TEST",
     IMAGE: "IMAGE"
 };

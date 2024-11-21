@@ -1,7 +1,7 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useEffect } from "react";
-import { LESSONS } from "../../../../core/config/shared";
-import WrapperComponent from "../../../shared/ui/WrapperComponent";
+import { LESSONS } from "../../../core/config/shared";
+import WrapperComponent from "../../shared/ui/WrapperComponent";
 import LessonComponent from "../ui/LessonComponent";
 
 const LessonScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
