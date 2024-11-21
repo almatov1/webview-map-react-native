@@ -13,7 +13,6 @@ const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any,
         });
     }, [navigation]);
     const handleMessage = (event: any) => {
-        console.log(event.nativeEvent.data)
         const value = JSON.parse(event.nativeEvent.data);
         if (value.name === 'countries') {
             const countryName = value.value;
