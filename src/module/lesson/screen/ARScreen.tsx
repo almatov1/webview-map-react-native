@@ -4,8 +4,9 @@ import { useState } from "react";
 import { View } from "react-native";
 import { COLORS } from "../../../core/config/template";
 import { ViroScale, ViroRotation } from "@reactvision/react-viro/dist/components/Types/ViroUtils";
+import ButtonComponent from "../../shared/ui/ButtonComponent";
 
-const ARScreen = ({ uri, animation }: { uri?: string, animation?: string }) => {
+const ARScreen = ({ uri, animation, onBack }: { uri?: string, animation?: string, onBack: () => void }) => {
     // CONTROL
     const [rotation, setRotation] = useState([0, 0, 0]);
     const rotateObject = (newRotation: number) => {
@@ -22,6 +23,20 @@ const ARScreen = ({ uri, animation }: { uri?: string, animation?: string }) => {
                 initialScene={{ scene: ARScene }}
                 viroAppProps={{ rotation, uri, animation }}
             />
+            <View
+                style={{
+                    position: 'absolute',
+                    top: 20,
+                    left: 0,
+                    right: 0,
+                    padding: 20
+                }}
+            >
+                <ButtonComponent
+                    title="⬅️ Артқа қайту"
+                    onClick={onBack}
+                />
+            </View>
             <View style={{
                 position: 'absolute',
                 bottom: 20,

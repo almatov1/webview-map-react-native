@@ -148,7 +148,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                 animationType="slide"
                 onRequestClose={() => setARShow(false)}
             >
-                <ARScreen uri={ARUri} animation={ARAnimation} />
+                <ARScreen uri={ARUri} animation={ARAnimation} onBack={() => setARShow(false)} />
             </Modal>
         </View >
     );
