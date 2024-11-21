@@ -118,7 +118,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                 gap: 20
             }}>
                 {LESSON_MATERIALS[lessonIndex].map((item, index) => (
-                    <Pressable key={index} onPress={item.onClick} style={{ width: '47%' }}>
+                    <Pressable key={index} onPress={item.onClick} style={{ width: '45%' }}>
                         <CardComponent>
                             <View>
                                 <Text style={{ fontSize: FONT_SIZE.DEFAULT }}>{item.label}</Text>

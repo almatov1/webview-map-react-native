@@ -19,7 +19,7 @@ const RouteComponent = () => {
                 initialRouteName={ROUTES.HOME}
                 screenOptions={{
                     headerStyle: { backgroundColor: COLORS.WHITE },
-                    headerTintColor: COLORS.BLUE
+                    headerTintColor: COLORS.BLUE,
                 }}
             >
                 <Stack.Screen name={ROUTES.HOME} component={HomeScreen} />
@@ -29,7 +29,7 @@ const RouteComponent = () => {
                 <Stack.Screen name={ROUTES.VIDEO} component={VideoScreen} />
                 <Stack.Screen name={ROUTES.TEST} component={TestScreen} />
                 <Stack.Screen name={ROUTES.IMAGE} component={ImageScreen} />
-                <Stack.Screen name={ROUTES.AR} component={ARScreen} />
+                <Stack.Screen name={ROUTES.AR} component={ARScreen} options={{ headerShown: false }} />
             </Stack.Navigator>
         </NavigationContainer>
     );

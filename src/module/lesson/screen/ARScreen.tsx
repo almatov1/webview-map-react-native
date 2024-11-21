@@ -9,11 +9,11 @@ import { ViroScale, ViroRotation } from "@reactvision/react-viro/dist/components
 const ARScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
     const { title, uri, animation } = route.params;
-    useEffect(() => {
-        navigation.setOptions({
-            headerTitle: title,
-        });
-    }, [navigation]);
+    // useEffect(() => {
+    //     navigation.setOptions({
+    //         headerTitle: title,
+    //     });
+    // }, [navigation]);
 
     // CONTROL
     const [rotation, setRotation] = useState([0, 0, 0]);
@@ -30,7 +30,6 @@ const ARScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, 
                 // @ts-ignore
                 initialScene={{ scene: ARScene }}
                 viroAppProps={{ rotation, uri, animation }}
-                style={{ flex: 1 }}
             />
             <View style={{
                 position: 'absolute',
@@ -72,7 +71,7 @@ const ARScene = (props: any) => {
             <Viro3DObject
                 source={{ uri: props.arSceneNavigator.viroAppProps.uri }}
                 type="GLB"
-                position={[0, -.1, -1]}
+                position={[0, 0, -1]}
                 scale={scale as ViroScale}
                 rotation={props.arSceneNavigator.viroAppProps.rotation as ViroRotation}
                 dragType="FixedToWorld"
