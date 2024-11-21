@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import WrapperComponent from "../../shared/ui/WrapperComponent";
 import { Dimensions, Image, ScrollView } from "react-native";
 import { BORDER_RADIUS } from "../../../core/config/template";
+import Zoom from "react-native-zoom-reanimated";
 
 const ImageScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
@@ -16,21 +17,25 @@ const ImageScreen = ({ navigation, route }: { navigation: StackNavigationProp<an
 
     return (
         <WrapperComponent>
-            <ScrollView contentContainerStyle={{
-                gap: 20
-            }}>
-                {images.map((item: any, index: number) => (
-                    <Image
-                        key={index}
-                        source={item}
-                        resizeMode="contain"
-                        style={{
-                            width: screenWidth,
-                            height: 220,
-                            borderRadius: BORDER_RADIUS.DEFAULT
-                        }}
-                    />
-                ))}
+            <ScrollView>
+                <Zoom
+                    doubleTapConfig={{
+                        defaultScale: 2
+                    }}
+                >
+                    {images.map((item: any, index: number) => (
+                        <Image
+                            key={index}
+                            source={item}
+                            resizeMode="contain"
+                            style={{
+                                width: screenWidth,
+                                height: 220,
+                                marginBottom: index !== images.length - 1 ? 20 : 0
+                            }}
+                        />
+                    ))}
+                </Zoom>
             </ScrollView>
         </WrapperComponent>
     );
