@@ -3,6 +3,8 @@ import { COUNTRIES } from "../../../core/config/countries";
 import WebView from "react-native-webview";
 import { useEffect } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { KAZAKHSTAN } from "../../../core/config/kazakhstan";
+import { CONTINENTS } from "../../../core/config/continents";
 
 const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
@@ -23,6 +25,22 @@ const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any,
                     { text: 'Құптау' },
                 ]);
             }
+        }
+        else if (value.name === 'kazakhstan') {
+            const regionName = value.value;
+            const region = KAZAKHSTAN.find(item => item[regionName as keyof typeof item]);
+            if (region) {
+                const regionData = region[regionName as keyof typeof region];
+                Alert.alert(regionData.name, `🗺️ Сіз ${regionData.name} облысын таңдадыңыз!\n🏙️ Орталығы: ${regionData.center}`, [
+                    { text: 'Құптау' },
+                ]);
+            }
+        }
+        else if (value.name === 'continents') {
+            // @ts-ignore
+            Alert.alert('', `🗺️ ${CONTINENTS[value.value]}`, [
+                { text: 'Құптау' },
+            ]);
         }
     };
 

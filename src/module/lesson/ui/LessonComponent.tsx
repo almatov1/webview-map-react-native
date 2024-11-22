@@ -6,6 +6,7 @@ import { useProgress } from "../../account/store/progress";
 import { ROUTES } from "../../../core/route/routes";
 import { useState } from "react";
 import ARScreen from "../screen/ARScreen";
+import { ScrollView } from "react-native-gesture-handler";
 
 const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonIndex: number }) => {
     // AR
@@ -17,88 +18,166 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
     // DEFINE
     const { progress, patchLesson } = useProgress();
     const LESSON_MATERIALS = [
+        // [
+        //     {
+        //         label: "🗺️ Map",
+        //         onClick: () => { navigation.navigate(ROUTES.MAP, { title: "Карта", uri: "file:///android_asset/html/lesson-0/index.html" }) }
+        //     },
+        //     {
+        //         label: "📱 AR",
+        //         onClick: () => {
+        //             setARUri("file:///android_asset/model/lesson-0/solar.glb");
+        //             setARAnimation("Default Take");
+        //             setARShow(true);
+        //         }
+        //     },
+        //     {
+        //         label: "📱 AR",
+        //         onClick: () => {
+        //             setARUri("file:///android_asset/model/lesson-0/Microscope.glb");
+        //             setARAnimation(undefined);
+        //             setARShow(true);
+        //         }
+        //     },
+        //     {
+        //         label: "📄 PDF",
+        //         onClick: () => {
+        //             navigation.navigate(ROUTES.IMAGE, {
+        //                 title: "Картинка", images: [
+        //                     require('../../../core/assets/img/lesson-1.jpg'),
+        //                     require('../../../core/assets/img/lesson-1.jpg'),
+        //                     require('../../../core/assets/img/lesson-1.jpg'),
+        //                     require('../../../core/assets/img/lesson-1.jpg'),
+        //                     require('../../../core/assets/img/lesson-1.jpg'),
+        //                     require('../../../core/assets/img/lesson-1.jpg')
+        //                 ]
+        //             })
+        //         }
+        //     },
+        //     {
+        //         label: "🎧 Audio",
+        //         onClick: () => {
+        //             navigation.navigate(ROUTES.VIDEO, { title: "Аудио", background: require('../../../core/assets/audio/sample.mp3') })
+        //         }
+        //     },
+        //     {
+        //         label: "📹 Video",
+        //         onClick: () => { navigation.navigate(ROUTES.VIDEO, { title: "Видео", background: require('../../../core/assets/video/sample.mp4') }) }
+        //     }
+        // ],
         [
             {
-                label: "🗺️ Map",
-                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "Карта", uri: "file:///android_asset/html/lesson-0/index.html" }) }
-            },
-            {
-                label: "📱 AR",
+                label: "📱 Макроәлем AR моделі",
                 onClick: () => {
-                    setARUri("file:///android_asset/model/lesson-0/solar.glb");
+                    setARUri("file:///android_asset/model/lesson-1/solar.glb");
                     setARAnimation("Default Take");
                     setARShow(true);
                 }
             },
             {
-                label: "📱 AR",
+                label: "📱 Микроәлем AR моделі",
                 onClick: () => {
-                    setARUri("file:///android_asset/model/lesson-0/Microscope.glb");
+                    setARUri("file:///android_asset/model/lesson-1/atom.glb");
+                    setARAnimation("Take 01");
+                    setARShow(true);
+                }
+            },
+            {
+                label: "📱 Телескоптың AR моделі",
+                onClick: () => {
+                    setARUri("file:///android_asset/model/lesson-1/telescope.glb");
                     setARAnimation(undefined);
                     setARShow(true);
                 }
             },
             {
-                label: "📄 PDF",
+                label: "📱 Микроскоптың AR моделі",
                 onClick: () => {
-                    navigation.navigate(ROUTES.IMAGE, {
-                        title: "Картинка", images: [
-                            require('../../../core/assets/img/lesson-1.jpg'),
-                            require('../../../core/assets/img/lesson-1.jpg'),
-                            require('../../../core/assets/img/lesson-1.jpg'),
-                            require('../../../core/assets/img/lesson-1.jpg'),
-                            require('../../../core/assets/img/lesson-1.jpg'),
-                            require('../../../core/assets/img/lesson-1.jpg')
-                        ]
-                    })
+                    setARUri("file:///android_asset/model/lesson-1/microscope.glb");
+                    setARAnimation(undefined);
+                    setARShow(true);
+                }
+            }
+        ],
+        [
+            {
+                label: "📱 Жер шарының AR моделі",
+                onClick: () => {
+                    setARUri("file:///android_asset/model/lesson-2/earth.glb");
+                    setARAnimation("");
+                    setARShow(true);
                 }
             },
             {
-                label: "🎧 Audio",
+                label: "🗺️ Жер шарының географиялық картасы",
+                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Жер шарының географиялық картасы", uri: "file:///android_asset/html/lesson-2/world.html" }) }
+            }
+        ],
+        [
+            {
+                label: "📱 Жер шары қабаттарының анимацияланған AR моделі",
                 onClick: () => {
-                    navigation.navigate(ROUTES.VIDEO, { title: "Аудио", background: require('../../../core/assets/audio/sample.mp3') })
+                    setARUri("file:///android_asset/model/lesson-3/mantle.glb");
+                    setARAnimation("Animation");
+                    setARShow(true);
                 }
             },
             {
-                label: "📹 Video",
-                onClick: () => { navigation.navigate(ROUTES.VIDEO, { title: "Видео", background: require('../../../core/assets/video/sample.mp4') }) }
+                label: "📱 Жер шары қабаттарының AR моделі",
+                onClick: () => {
+                    setARUri("file:///android_asset/model/lesson-3/mantle2.glb");
+                    setARAnimation(undefined);
+                    setARShow(true);
+                }
+            },
+            {
+                label: "📱 Жер шарының атмосфера қабатының AR моделі",
+                onClick: () => {
+                    setARUri("file:///android_asset/model/lesson-3/atmosphere.glb");
+                    setARAnimation("Take 001");
+                    setARShow(true);
+                }
             }
         ],
         [
             {
-                label: "📹 Video",
-                onClick: () => { }
+                label: "📱 Бактерия (алғашқы тірі организм) AR моделі",
+                onClick: () => {
+                    setARUri("file:///android_asset/model/lesson-4/bacteria.glb");
+                    setARAnimation(undefined);
+                    setARShow(true);
+                }
+            },
+        ],
+        [
+            {
+                label: "🗺️ Жер шарының политикалық картасы",
+                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Жер шарының политикалық картасы", uri: "file:///android_asset/html/lesson-5/countries.html" }) }
+            },
+            {
+                label: "🗺️ Қазақстан картасы",
+                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Қазақстан картасы", uri: "file:///android_asset/html/lesson-5/kazakhstan.html" }) }
             }
         ],
         [
             {
-                label: "📄 PDF",
-                onClick: () => { }
+                label: "🗺️ Құрлықтар картасы",
+                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Құрлықтар картасы", uri: "file:///android_asset/html/lesson-6/continents.html" }) }
+            },
+            {
+                label: "🗺️ Мұхиттар картасы",
+                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Мұхиттар картасы", uri: "file:///android_asset/html/lesson-6/oceans.html" }) }
             }
         ],
         [
             {
-                label: "🎧 Audio",
-                onClick: () => { }
-            }
-        ],
-        [
-            {
-                label: "🗺️ Map",
-                onClick: () => { }
-            }
-        ],
-        [
-            {
-                label: "📱 AR",
-                onClick: () => { }
-            }
-        ],
-        [
-            {
-                label: "📱 AR",
-                onClick: () => { }
-            }
+                label: "📱 Токио қаласы бөлігінің AR моделі",
+                onClick: () => {
+                    setARUri("file:///android_asset/model/lesson-7/tokyo.glb");
+                    setARAnimation(undefined);
+                    setARShow(true);
+                }
+            },
         ],
         [
             {
@@ -115,23 +194,22 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
 
     return (
         <View style={{ flex: 1 }}>
-            <View style={{
-                flex: 1,
+            <ScrollView contentContainerStyle={{
                 flexDirection: 'row',
                 flexWrap: 'wrap',
                 justifyContent: 'space-between',
-                gap: 20
+                alignItems: 'stretch'
             }}>
                 {LESSON_MATERIALS[lessonIndex].map((item, index) => (
-                    <Pressable key={index} onPress={item.onClick} style={{ width: '45%' }}>
-                        <CardComponent>
-                            <View>
+                    <Pressable key={index} onPress={item.onClick} style={{ width: '46%', marginBottom: 20 }}>
+                        <CardComponent isFlex>
+                            <View style={{ flex: 1 }}>
                                 <Text style={{ fontSize: FONT_SIZE.DEFAULT }}>{item.label}</Text>
                             </View>
                         </CardComponent>
                     </Pressable>
                 ))}
-            </View>
+            </ScrollView>
             {
                 (lessonIndex !== 7 && !progress.lessons[lessonIndex].finished) && < CardComponent >
                     <View style={{ gap: 20 }}>
