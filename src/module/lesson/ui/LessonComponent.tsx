@@ -10,146 +10,110 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
     // DEFINE
     const { progress, patchLesson } = useProgress();
     const LESSON_MATERIALS = [
-        // [
-        //     {
-        //         label: "🗺️ Map",
-        //         onClick: () => { navigation.navigate(ROUTES.MAP, { title: "Карта", uri: "file:///android_asset/html/lesson-0/index.html" }) }
-        //     },
-        //     {
-        //         label: "📱 AR",
-        //         onClick: () => {
-        //             setARUri("file:///android_asset/model/lesson-0/solar.glb");
-        //             setARAnimation("Default Take");
-        //             setARShow(true);
-        //         }
-        //     },
-        //     {
-        //         label: "📱 AR",
-        //         onClick: () => {
-        //             setARUri("file:///android_asset/model/lesson-0/Microscope.glb");
-        //             setARAnimation(undefined);
-        //             setARShow(true);
-        //         }
-        //     },
-        //     {
-        //         label: "📄 PDF",
-        //         onClick: () => {
-        //             navigation.navigate(ROUTES.IMAGE, {
-        //                 title: "Картинка", images: [
-        //                     require('../../../core/assets/img/lesson-1.jpg'),
-        //                     require('../../../core/assets/img/lesson-1.jpg'),
-        //                     require('../../../core/assets/img/lesson-1.jpg'),
-        //                     require('../../../core/assets/img/lesson-1.jpg'),
-        //                     require('../../../core/assets/img/lesson-1.jpg'),
-        //                     require('../../../core/assets/img/lesson-1.jpg')
-        //                 ]
-        //             })
-        //         }
-        //     },
-        //     {
-        //         label: "🎧 Audio",
-        //         onClick: () => {
-        //             navigation.navigate(ROUTES.VIDEO, { title: "Аудио", background: require('../../../core/assets/audio/sample.mp3') })
-        //         }
-        //     },
-        //     {
-        //         label: "📹 Video",
-        //         onClick: () => { navigation.navigate(ROUTES.VIDEO, { title: "Видео", background: require('../../../core/assets/video/sample.mp4') }) }
-        //     }
-        // ],
         [
-            // {
-            //     label: "🗺️ Жер шарының географиялық картасы",
-            //     onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Жер шарының географиялық картасы", uri: "file:///android_asset/html/ar.html" }) }
-            // },
+            {
+                label: "📄 Анықтама",
+                onClick: () => {
+                    navigation.navigate(ROUTES, {
+                        title: "📄 Анықтама", images: [
+                            require('../../../core/assets/img/lesson-1.jpg'),
+                            require('../../../core/assets/img/lesson-1-1.jpg')
+                        ]
+                    })
+                }
+            },
+            {
+                label: "🎧 Аудиожазба",
+                onClick: () => {
+                    navigation.navigate(ROUTES.VIDEO, { title: "🎧 Аудиожазба", background: require('../../../core/assets/audio/lesson-1.mp4') })
+                }
+            },
             {
                 label: "📱 Макроәлем AR моделі",
                 onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-1/solar.glb")
             },
-            // {
-            //     label: "📱 Микроәлем AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-1/atom.glb");
-            //         setARAnimation("Take 01");
-            //         setARShow(true);
-            //         setARZoom([0.3, 1]);
-            //     }
-            // },
-            // {
-            //     label: "📱 Телескоптың AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-1/telescope.glb");
-            //         setARAnimation(undefined);
-            //         setARShow(true);
-            //         setARZoom([0.3, 1]);
-            //     }
-            // },
-            // {
-            //     label: "📱 Микроскоптың AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-1/microscope.glb");
-            //         setARAnimation(undefined);
-            //         setARShow(true);
-            //         setARZoom([0.4, 1]);
-            //     }
-            // }
+            {
+                label: "📱 Микроәлем AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-1/atom.glb")
+            },
+            {
+                label: "📱 Телескоптың AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-1/telescope.glb")
+            },
+            {
+                label: "📱 Микроскоптың AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-1/microscope.glb")
+            }
         ],
         [
-            // {
-            //     label: "📱 Жер шарының AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-2/earth.glb");
-            //         setARAnimation("");
-            //         setARShow(true);
-            //         setARZoom([0.4, 1.2]);
-            //     }
-            // },
-            // {
-            //     label: "🗺️ Жер шарының географиялық картасы",
-            //     onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Жер шарының географиялық картасы", uri: "file:///android_asset/html/lesson-2/world.html" }) }
-            // }
+            {
+                label: "🎧 Аудиожазба",
+                onClick: () => {
+                    navigation.navigate(ROUTES.VIDEO, { title: "🎧 Аудиожазба", background: require('../../../core/assets/audio/lesson-2.mp4') })
+                }
+            },
+            {
+                label: "📹 Табиғи құбылыстар",
+                onClick: () => { navigation.navigate(ROUTES.VIDEO, { title: "📹 Табиғи құбылыстар", background: require('../../../core/assets/video/lesson-2.mp4') }) }
+            },
+            {
+                label: "📱 Жер шарының AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-2/earth.glb")
+            },
+            {
+                label: "🗺️ Жер шарының географиялық картасы",
+                onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Жер шарының географиялық картасы", uri: "file:///android_asset/html/lesson-2/world.html" }) }
+            }
         ],
         [
-            // {
-            //     label: "📱 Жер шары қабаттарының анимацияланған AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-3/mantle.glb");
-            //         setARAnimation("Animation");
-            //         setARShow(true);
-            //         setARZoom([0.3, 1]);
-            //     }
-            // },
-            // {
-            //     label: "📱 Жер шары қабаттарының AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-3/mantle2.glb");
-            //         setARAnimation(undefined);
-            //         setARShow(true);
-            //         setARZoom([0.3, 1]);
-            //     }
-            // },
-            // {
-            //     label: "📱 Жер шарының атмосфера қабатының AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-3/atmosphere.glb");
-            //         setARAnimation("Take 001");
-            //         setARShow(true);
-            //         setARZoom([0.3, 1]);
-            //     }
-            // }
+            {
+                label: "📄 Анықтама",
+                onClick: () => {
+                    navigation.navigate(ROUTES, {
+                        title: "📄 Анықтама", images: [
+                            require('../../../core/assets/img/lesson-3.jpg'),
+                            require('../../../core/assets/img/lesson-3-1.jpg')
+                        ]
+                    })
+                }
+            },
+            {
+                label: "🎧 Аудиожазба",
+                onClick: () => {
+                    navigation.navigate(ROUTES.VIDEO, { title: "🎧 Аудиожазба", background: require('../../../core/assets/audio/lesson-3.mp4') })
+                }
+            },
+            {
+                label: "📱 Жер шары қабаттарының анимацияланған AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-3/mantle.glb")
+            },
+            {
+                label: "📱 Жер шары қабаттарының AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-3/mantle2.glb")
+            },
+            {
+                label: "📱 Жер шарының атмосфера қабатының AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-3/atmosphere.glb")
+            }
         ],
         [
-            // {
-            //     label: "📱 Бактерия (алғашқы тірі организм) AR моделі",
-            //     onClick: () => {
-            //         setARUri("file:///android_asset/model/lesson-4/bacteria.glb");
-            //         setARAnimation(undefined);
-            //         setARShow(true);
-            //         setARZoom([0.6, 1.4]);
-            //     }
-            // },
+            {
+                label: "📱 Бактерия (алғашқы тірі организм) AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-4/bacteria.glb")
+            },
         ],
         [
+            {
+                label: "📄 Анықтама",
+                onClick: () => {
+                    navigation.navigate(ROUTES, {
+                        title: "📄 Анықтама", images: [
+                            require('../../../core/assets/img/lesson-5.jpg'),
+                            require('../../../core/assets/img/lesson-5-1.jpg')
+                        ]
+                    })
+                }
+            },
             {
                 label: "🗺️ Жер шарының политикалық картасы",
                 onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Жер шарының политикалық картасы", uri: "file:///android_asset/html/lesson-5/countries.html" }) }
@@ -161,6 +125,16 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
         ],
         [
             {
+                label: "📄 Анықтама",
+                onClick: () => {
+                    navigation.navigate(ROUTES, {
+                        title: "📄 Анықтама", images: [
+                            require('../../../core/assets/img/lesson-6.jpg')
+                        ]
+                    })
+                }
+            },
+            {
                 label: "🗺️ Құрлықтар картасы",
                 onClick: () => { navigation.navigate(ROUTES.MAP, { title: "🗺️ Құрлықтар картасы", uri: "file:///android_asset/html/lesson-6/continents.html" }) }
             },
@@ -170,11 +144,19 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             }
         ],
         [
+            {
+                label: "📱 Ежелгі қаланың AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-7/ancient.glb")
+            },
+            {
+                label: "📱 Қазіргі Шанхай қаласының AR моделі",
+                onClick: () => onAR("https://github.com/almatov1/education-app-react-native/raw/refs/heads/main/android/app/src/main/assets/model/lesson-7/city.glb")
+            },
         ],
         [
             {
-                label: "✏️ Test",
-                onClick: () => { navigation.navigate(ROUTES.TEST, { title: "Тест" }) }
+                label: "✏️ Бөлім бойынша қорытынды тест",
+                onClick: () => { navigation.navigate(ROUTES.TEST, { title: "Бөлім бойынша қорытынды тест" }) }
             },
         ]
     ];
