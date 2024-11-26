@@ -14,7 +14,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "📄 Анықтама",
                 onClick: () => {
-                    navigation.navigate(ROUTES, {
+                    navigation.navigate(ROUTES.IMAGE, {
                         title: "📄 Анықтама", images: [
                             require('../../../core/assets/img/lesson-1.jpg'),
                             require('../../../core/assets/img/lesson-1-1.jpg')
@@ -69,7 +69,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "📄 Анықтама",
                 onClick: () => {
-                    navigation.navigate(ROUTES, {
+                    navigation.navigate(ROUTES.IMAGE, {
                         title: "📄 Анықтама", images: [
                             require('../../../core/assets/img/lesson-3.jpg'),
                             require('../../../core/assets/img/lesson-3-1.jpg')
@@ -106,7 +106,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "📄 Анықтама",
                 onClick: () => {
-                    navigation.navigate(ROUTES, {
+                    navigation.navigate(ROUTES.IMAGE, {
                         title: "📄 Анықтама", images: [
                             require('../../../core/assets/img/lesson-5.jpg'),
                             require('../../../core/assets/img/lesson-5-1.jpg')
@@ -127,7 +127,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "📄 Анықтама",
                 onClick: () => {
-                    navigation.navigate(ROUTES, {
+                    navigation.navigate(ROUTES.IMAGE, {
                         title: "📄 Анықтама", images: [
                             require('../../../core/assets/img/lesson-6.jpg')
                         ]
