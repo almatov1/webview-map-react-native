@@ -10,12 +10,15 @@ const InputComponent = ({ placeholder, value, onChange }: { placeholder: string,
                 borderColor: COLORS.BLUE,
                 borderWidth: 1,
                 backgroundColor: COLORS.WHITE_DARK,
-                fontSize: FONT_SIZE.DEFAULT
+                fontSize: FONT_SIZE.DEFAULT,
+                justifyContent: 'center'
             }}
             placeholder={placeholder}
             value={value}
             onChangeText={onChange}
             keyboardType="default"
+            placeholderTextColor="grey"
+            numberOfLines={1}
         />
     );
 }
