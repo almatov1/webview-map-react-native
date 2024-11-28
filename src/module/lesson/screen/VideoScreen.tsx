@@ -1,11 +1,14 @@
 import { StackNavigationProp } from "@react-navigation/stack";
 import { useEffect } from "react";
-import { View } from "react-native";
-import Video from "react-native-video";
+import { Text, View } from "react-native";
+import VideoPlayer from 'react-native-video-player';
+import { FONT_SIZE } from "../../../core/config/template";
+import CardComponent from "../../shared/ui/CardComponent";
+import WrapperComponent from "../../shared/ui/WrapperComponent";
 
 const VideoScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
-    const { title, background } = route.params;
+    const { title, background, header, text } = route.params;
     useEffect(() => {
         navigation.setOptions({
             headerTitle: title,
@@ -14,17 +17,17 @@ const VideoScreen = ({ navigation, route }: { navigation: StackNavigationProp<an
 
     return (
         <View style={{ flex: 1 }}>
-            <Video
-                source={background}
-                controls={true}
-                style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    bottom: 0,
-                    right: 0
-                }}
-            />
+            <VideoPlayer source={background} />
+            <WrapperComponent>
+                <View style={{ gap: 10 }}>
+                    <CardComponent>
+                        <Text style={{ fontSize: FONT_SIZE.LARGE }}>ℹ️ {header}</Text>
+                    </CardComponent>
+                    <CardComponent>
+                        <Text style={{ fontSize: FONT_SIZE.DEFAULT }}>{text}</Text>
+                    </CardComponent>
+                </View>
+            </WrapperComponent>
         </View>
     );
 }

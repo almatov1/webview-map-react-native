@@ -9,6 +9,7 @@ import HoldButtonComponent from "../../shared/ui/HoldButtonComponent";
 import { COLORS, FONT_SIZE } from "../../../core/config/template";
 import CheckBox from "@react-native-community/checkbox";
 import WrapperComponent from "../../shared/ui/WrapperComponent";
+import { CommonActions } from '@react-navigation/native';
 
 const TestScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
@@ -36,7 +37,12 @@ const TestScreen = ({ navigation, route }: { navigation: StackNavigationProp<any
                 correctAnswers++;
             }
         });
-        navigation.navigate(ROUTES.HOME);
+        navigation.dispatch(
+            CommonActions.reset({
+                index: 0,
+                routes: [{ name: ROUTES.HOME }],
+            })
+        );
         Alert.alert('Тест аяқталды ✅', `Нәтижесі: ${correctAnswers} сұраққа дұрыс жауап белгіленді.`);
         patchLesson(7, { finished: true, test: correctAnswers });
     };

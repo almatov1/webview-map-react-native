@@ -5,6 +5,7 @@ import { FONT_SIZE } from "../../../core/config/template";
 import { useProgress } from "../../account/store/progress";
 import { ROUTES } from "../../../core/route/routes";
 import { ScrollView } from "react-native-gesture-handler";
+import { CommonActions } from '@react-navigation/native';
 
 const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonIndex: number }) => {
     // DEFINE
@@ -25,7 +26,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "🎧 Аудиожазба",
                 onClick: () => {
-                    navigation.navigate(ROUTES.VIDEO, { title: "🎧 Аудиожазба", background: require('../../../core/assets/audio/lesson-1.mp4') })
+                    navigation.navigate(ROUTES.VIDEO, { title: "🎧 Аудиожазба", background: require('../../../core/assets/audio/lesson-1.mp4'), header: "Бұл аудиожазба", text: "Для добавления элемента описывающего аудио файл на страницу, используется тег <audio>. Нужно обратить внимание, что не все форматы аудио файлов поддерживаются браузерами. В теге необходимо обязательно определить путь к файлу, посредством атрибута src или вложенным тегом <source>." })
                 }
             },
             {
@@ -163,7 +164,12 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
     const onFinished = async () => {
         patchLesson(lessonIndex, { finished: true });
         Alert.alert('Құттықтаймыз!', 'Тақырып сәтті өтілді ✅');
-        navigation(navigation.navigate(ROUTES.HOME));
+        navigation.dispatch(
+            CommonActions.reset({
+                index: 0,
+                routes: [{ name: ROUTES.HOME }],
+            })
+        );
     }
     const onAR = (link: string) => {
         Linking.openURL(`https://arvr.google.com/scene-viewer/1.0?file=${link}&mode=ar_preferred`).catch((err) => {
