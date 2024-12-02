@@ -186,7 +186,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                 onClick: () => {
                     navigation.navigate(ROUTES.MAP, {
                         title: "🗺️ Жер шарының политикалық картасы",
-                        linm: "https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/html/lesson-5/countries.html"
+                        link: "https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/html/lesson-5/countries.html"
                     })
                 }
             },

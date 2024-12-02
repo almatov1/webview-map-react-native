@@ -1,7 +1,7 @@
 import { Alert, View } from "react-native";
 import { COUNTRIES } from "../../../core/config/countries";
 import WebView from "react-native-webview";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { KAZAKHSTAN } from "../../../core/config/kazakhstan";
 import { CONTINENTS } from "../../../core/config/continents";
@@ -9,6 +9,7 @@ import { CONTINENTS } from "../../../core/config/continents";
 const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
     const { title, link } = route.params;
+    const [htmlContent, setHtmlContent] = useState<string | null>(null);
     useEffect(() => {
         navigation.setOptions({
             headerTitle: title,
@@ -43,12 +44,22 @@ const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any,
             ]);
         }
     };
+    useEffect(() => {
+        const fetchHtml = async () => {
+            const response = await fetch(link);
+            const html = await response.text();
+            setHtmlContent(html);
+        };
 
+        fetchHtml();
+    }, []);
+
+    if (!htmlContent) return null;
     return (
         <View style={{ flex: 1 }}>
             <WebView
                 originWhitelist={['*']}
-                source={{ uri: link }}
+                source={{ html: htmlContent }}
                 javaScriptEnabled={true}
                 onMessage={handleMessage}
             />
