@@ -5,5 +5,5 @@ export const ROUTES = {
     VIDEO: "VIDEO",
     MAP: "MAP",
     TEST: "TEST",
-    IMAGE: "IMAGE"
+    INFO: "INFO"
 };

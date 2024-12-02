@@ -8,7 +8,7 @@ import WrapperComponent from "../../shared/ui/WrapperComponent";
 
 const VideoScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
-    const { title, background, header, text } = route.params;
+    const { title, link, header, text } = route.params;
     useEffect(() => {
         navigation.setOptions({
             headerTitle: title,
@@ -17,7 +17,7 @@ const VideoScreen = ({ navigation, route }: { navigation: StackNavigationProp<an
 
     return (
         <View style={{ flex: 1 }}>
-            <VideoPlayer source={background} />
+            <VideoPlayer source={{ uri: link }} showDuration={true} />
             <WrapperComponent>
                 <View style={{ gap: 10 }}>
                     <CardComponent>

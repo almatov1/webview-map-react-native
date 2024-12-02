@@ -8,7 +8,7 @@ import { CONTINENTS } from "../../../core/config/continents";
 
 const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
-    const { title, uri } = route.params;
+    const { title, link } = route.params;
     useEffect(() => {
         navigation.setOptions({
             headerTitle: title,
@@ -48,7 +48,7 @@ const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any,
         <View style={{ flex: 1 }}>
             <WebView
                 originWhitelist={['*']}
-                source={{ uri: uri }}
+                source={{ uri: link }}
                 javaScriptEnabled={true}
                 onMessage={handleMessage}
             />
