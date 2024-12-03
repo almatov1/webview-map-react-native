@@ -126,10 +126,6 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
             {
                 label: "📱 Жер шары қабаттарының AR моделі",
                 onClick: () => onAR("https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/model/lesson-3/mantle2.glb")
-            },
-            {
-                label: "📱 Жер шарының атмосфера қабатының AR моделі",
-                onClick: () => onAR("https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/model/lesson-3/atmosphere.glb")
             }
         ],
         [
