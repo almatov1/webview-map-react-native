@@ -216,7 +216,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                 onClick: () => {
                     navigation.navigate(ROUTES.VIDEO, {
                         title: "📹 Видеожазба",
-                        link: "https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/video/lesson5.mp4",
+                        link: "https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/video/lesson6.mp4",
                         header: "Материктер мен мұхиттар",
                         text: "Материктер мен мұхиттар өзара тығыз байланыста. Олар климатты, табиғат аймақтарын, өсімдіктер мен жануарлардың таралуын анықтайды, сондай-ақ адамзат тіршілігі үшін маңызды ресурстардың көзі болып табылады."
                     })
@@ -257,7 +257,7 @@ const LessonComponent = ({ navigation, lessonIndex }: { navigation: any, lessonI
                 onClick: () => {
                     navigation.navigate(ROUTES.VIDEO, {
                         title: "📹 Видеожазба",
-                        link: "https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/video/lesson5.mp4",
+                        link: "https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/video/lesson7.mp4",
                         header: "Халықтар географиясы",
                         text: "Бұл ғылым халықтың табиғи ресурстарды пайдалануын, қоршаған ортаға әсерін, мәдениет пен экономика арасындағы байланысты түсінуге көмектеседі. Халықтар географиясы урбанизация, миграция және демографиялық өзгерістер мәселелерін зерттеп, болашақ жоспарлауға үлес қосады."
                     })
