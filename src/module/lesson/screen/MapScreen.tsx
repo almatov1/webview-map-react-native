@@ -4,7 +4,6 @@ import WebView from "react-native-webview";
 import { useEffect, useState } from "react";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { KAZAKHSTAN } from "../../../core/config/kazakhstan";
-import { CONTINENTS } from "../../../core/config/continents";
 
 const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any, any>, route: any }) => {
     // DEFINE
@@ -36,12 +35,6 @@ const MapScreen = ({ navigation, route }: { navigation: StackNavigationProp<any,
                     { text: 'Құптау' },
                 ]);
             }
-        }
-        else if (value.name === 'continents') {
-            // @ts-ignore
-            Alert.alert('', `🗺️ ${CONTINENTS[value.value]}`, [
-                { text: 'Құптау' },
-            ]);
         }
     };
     useEffect(() => {
