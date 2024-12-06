@@ -1,4 +1,4 @@
-import { Pressable, Text, View } from "react-native";
+import { Alert, Linking, Pressable, Text, View } from "react-native";
 import CardComponent from "../../shared/ui/CardComponent";
 import { FONT_SIZE } from "../../../core/config/template";
 import { ROUTES } from "../../../core/route/routes";
@@ -29,6 +29,10 @@ const LessonComponent = ({ navigation }: { navigation: any }) => {
             }
         },
         {
+            label: "📱 Глобустың AR моделі",
+            onClick: () => onAR("https://github.com/almatov1/assets-education-app-react-native/raw/refs/heads/main/assets/model/lesson-5/globe.glb")
+        },
+        {
             label: "🗺️ Жер шарының политикалық картасы",
             onClick: () => {
                 navigation.navigate(ROUTES.MAP, {
@@ -47,6 +51,11 @@ const LessonComponent = ({ navigation }: { navigation: any }) => {
             }
         }
     ];
+    const onAR = (link: string) => {
+        Linking.openURL(`https://arvr.google.com/scene-viewer/1.0?file=${link}&mode=ar_preferred`).catch((err) => {
+            Alert.alert('Қате', 'AR модельдің сілтемесі ашылмады.');
+        });
+    }
 
     return (
         <View style={{ flex: 1 }}>
